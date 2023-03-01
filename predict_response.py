@@ -5,7 +5,7 @@ import numpy as np
 import random
 
 ignore_words = ['?', '!',',','.', "'s", "'m"]
-
+import tensorflow
 from data_preprocessing import get_stem_words
 
 model = tensorflow.keras.models.load_model("./chatbot_model.h5")
@@ -41,7 +41,7 @@ def bot_response(user_input):
 
     for intent in intents['intents']:
         if intent['tag'] == predicted_class:
-            bot_response = random.choice(intent['reponses'])
+            bot_response = random.choice(intent['responses'])
             return bot_response
 
 print("hi i am mahek , how can i help you?")
